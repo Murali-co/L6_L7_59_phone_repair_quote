@@ -1,0 +1,17 @@
+$ python -m pytest test_phone_repair_quote_parser.py -k no_crash -v --tb=short --color=no
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/.venv/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: /home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7
+plugins: cov-7.1.0, hypothesis-6.170.15, anyio-4.15.1
+collecting ... collected 40 items / 37 deselected / 3 selected
+
+test_phone_repair_quote_parser.py::test_mask_imei_no_crash PASSED        [ 33%]
+test_phone_repair_quote_parser.py::test_parse_parts_order_no_crash PASSED [ 66%]
+test_phone_repair_quote_parser.py::test_parse_model_no_crash PASSED      [100%]
+
+======================= 3 passed, 37 deselected in 0.38s =======================
+
+Exit status: 0
+

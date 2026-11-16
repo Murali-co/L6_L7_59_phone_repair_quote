@@ -1,0 +1,158 @@
+$ ../.venv/bin/python -m pytest test_phone_repair_quote_parser.py -k no_crash -v --tb=short --color=no
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/../.venv/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: /home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7
+plugins: cov-7.1.0, hypothesis-6.170.15, anyio-4.15.1
+collecting ... collected 40 items / 37 deselected / 3 selected
+
+test_phone_repair_quote_parser.py::test_mask_imei_no_crash FAILED        [ 33%]
+test_phone_repair_quote_parser.py::test_parse_parts_order_no_crash FAILED [ 66%]
+test_phone_repair_quote_parser.py::test_parse_model_no_crash FAILED      [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_mask_imei_no_crash ____________________________
+test_phone_repair_quote_parser.py:11: in test_mask_imei_no_crash
+    result = mask_imei(s)
+             ^^^^^^^^^^^^
+phone_repair_quote_parser.py:6: in mask_imei
+    imei = imei.replace('-', '').replace(' ', '')
+           ^^^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'replace'
+
+During handling of the above exception, another exception occurred:
+test_phone_repair_quote_parser.py:8: in test_mask_imei_no_crash
+    @given(st.text() | st.none())
+                   ^^^
+test_phone_repair_quote_parser.py:13: in test_mask_imei_no_crash
+    pytest.fail(f"mask_imei({s!r}) raised {type(exc).__name__}: {exc}")
+E   Failed: mask_imei(None) raised AttributeError: 'NoneType' object has no attribute 'replace'
+E   Failing test case: test_mask_imei_no_crash(
+E       s=None,
+E   )
+E   Explanation:
+E       These lines were always and only run by failing test cases:
+E           /home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py:12
+_______________________ test_parse_parts_order_no_crash ________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 17, in test_parse_parts_order_no_crash
+  |     @given(st.text() | st.none())
+  |                    ^^^
+  | BaseExceptionGroup: Hypothesis found 3 distinct failures. (3 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 20, in test_parse_parts_order_no_crash
+    |     result = parse_parts_order(s)
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/phone_repair_quote_parser.py", line 17, in parse_parts_order
+    |     order[part.strip()] = int(qty)
+    |                           ^^^^^^^^
+    | ValueError: invalid literal for int() with base 10: ''
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 22, in test_parse_parts_order_no_crash
+    |     pytest.fail(f"parse_parts_order({s!r}) raised {type(exc).__name__}: {exc}")
+    | Failed: parse_parts_order('x') raised ValueError: invalid literal for int() with base 10: ''
+    | Failing test case: test_parse_parts_order_no_crash(
+    |     s='x',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 20, in test_parse_parts_order_no_crash
+    |     result = parse_parts_order(s)
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/phone_repair_quote_parser.py", line 16, in parse_parts_order
+    |     part, qty = item.split('x')
+    |     ^^^^^^^^^
+    | ValueError: not enough values to unpack (expected 2, got 1)
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 22, in test_parse_parts_order_no_crash
+    |     pytest.fail(f"parse_parts_order({s!r}) raised {type(exc).__name__}: {exc}")
+    | Failed: parse_parts_order('') raised ValueError: not enough values to unpack (expected 2, got 1)
+    | Failing test case: test_parse_parts_order_no_crash(
+    |     s='',  # or any other generated value
+    | )
+    +---------------- 3 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 20, in test_parse_parts_order_no_crash
+    |     result = parse_parts_order(s)
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/phone_repair_quote_parser.py", line 15, in parse_parts_order
+    |     for item in text.split(';'):
+    |                 ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 22, in test_parse_parts_order_no_crash
+    |     pytest.fail(f"parse_parts_order({s!r}) raised {type(exc).__name__}: {exc}")
+    | Failed: parse_parts_order(None) raised AttributeError: 'NoneType' object has no attribute 'split'
+    | Failing test case: test_parse_parts_order_no_crash(
+    |     s=None,  # or any other generated value
+    | )
+    +------------------------------------
+__________________________ test_parse_model_no_crash ___________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 28, in test_parse_model_no_crash
+  |     @given(st.text() | st.none())
+  |                    ^^^
+  | BaseExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 31, in test_parse_model_no_crash
+    |     result = parse_model(s)
+    |              ^^^^^^^^^^^^^^
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/phone_repair_quote_parser.py", line 25, in parse_model
+    |     brand, model = text.strip().split(' ', 1)
+    |     ^^^^^^^^^^^^
+    | ValueError: not enough values to unpack (expected 2, got 1)
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 33, in test_parse_model_no_crash
+    |     pytest.fail(f"parse_model({s!r}) raised {type(exc).__name__}: {exc}")
+    | Failed: parse_model('') raised ValueError: not enough values to unpack (expected 2, got 1)
+    | Failing test case: test_parse_model_no_crash(
+    |     s='',
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         /home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py:32
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 31, in test_parse_model_no_crash
+    |     result = parse_model(s)
+    |              ^^^^^^^^^^^^^^
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/phone_repair_quote_parser.py", line 25, in parse_model
+    |     brand, model = text.strip().split(' ', 1)
+    |                    ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'strip'
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py", line 33, in test_parse_model_no_crash
+    |     pytest.fail(f"parse_model({s!r}) raised {type(exc).__name__}: {exc}")
+    | Failed: parse_model(None) raised AttributeError: 'NoneType' object has no attribute 'strip'
+    | Failing test case: test_parse_model_no_crash(
+    |     s=None,
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         /home/murali/Desktop/SEM 5 /SE/LABS/L6_L7_59_phone_repair_quote/LAB7/test_phone_repair_quote_parser.py:32
+    +------------------------------------
+=========================== short test summary info ============================
+FAILED test_phone_repair_quote_parser.py::test_mask_imei_no_crash - Failed: m...
+FAILED test_phone_repair_quote_parser.py::test_parse_parts_order_no_crash - B...
+FAILED test_phone_repair_quote_parser.py::test_parse_model_no_crash - BaseExc...
+======================= 3 failed, 37 deselected in 2.37s =======================
+
+Exit status: 1

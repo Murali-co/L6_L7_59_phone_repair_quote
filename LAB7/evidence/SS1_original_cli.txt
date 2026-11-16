@@ -1,0 +1,16 @@
+$ ../.venv/bin/python phone_repair_quote_parser.py
+Standard input:
+35-209900-176148-1
+screen x1; battery x2
+Samsung Galaxy S23
+
+==== Running mask_imei ====
+Enter an IMEI number (e.g. 35-209900-176148-1): Masked IMEI: ***********1481
+
+==== Running parse_parts_order ====
+Enter parts and quantities as PART xQTY separated by ; (e.g. screen x1; battery x2): Parts order: {'screen': 1, 'battery': 2}
+
+==== Running parse_model ====
+Enter the phone brand and model (e.g. Samsung Galaxy S23): Brand and model: ('Samsung', 'Galaxy S23')
+
+Exit status: 0
