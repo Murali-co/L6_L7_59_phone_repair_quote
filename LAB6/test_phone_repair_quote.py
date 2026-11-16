@@ -1,11 +1,10 @@
-import pytest
-from phone_repair_quote import repair_quote, repair_days, trade_in_value
+"""Default pytest entry point for both handout test suites."""
 
-#Example test cases:
-def test_budget_screen():
-    assert repair_quote("screen", "budget", False, False) == 4600
-
-def test_in_stock_quick():
-    assert repair_days("battery", True, 2) == 1
-
-#Write the rest of the test cases so that the code is 90- 100% covered.
+from CodeCoverageTest_phone_repair_quote import (
+    test_line_quote, test_line_invalid_quote, test_line_days,
+    test_line_trade_in, test_line_invalid_trade_in,
+)
+from BranchCoverageTest_phone_repair_quote import (
+    test_repair_quote, test_invalid_quote, test_repair_days,
+    test_trade_in_age_boundaries, test_invalid_trade_in, test_trade_in_rounds_down,
+)
