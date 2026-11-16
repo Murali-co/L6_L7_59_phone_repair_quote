@@ -1,0 +1,15 @@
+$ python -m coverage run --source=phone_repair_quote -m pytest CodeCoverageTest_phone_repair_quote.py -q
+..............                                                           [100%]
+14 passed in 0.19s
+
+Exit status: 0
+
+$ python -m coverage report -m --fail-under=100
+Name                    Stmts   Miss  Cover   Missing
+-----------------------------------------------------
+phone_repair_quote.py      40      0   100%
+-----------------------------------------------------
+TOTAL                      40      0   100%
+
+Exit status: 0
+
